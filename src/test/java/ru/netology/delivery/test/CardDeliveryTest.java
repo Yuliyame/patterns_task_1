@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-class DeliveryTest {
+class CardDeliveryTest {
 
     @BeforeEach
     void setup() {
@@ -24,8 +24,8 @@ class DeliveryTest {
     @DisplayName("Should successful plan meeting")
     void shouldSuccessfulPlanMeeting() {
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
-        int daysToAddForTheFirstMeeting = 4;
-        String firstMeetingDate = DataGenerator.generateDate(daysToAddForTheFirstMeeting);
+        int daysToAddForFirstMeeting = 4;
+        String firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         int daysToAddForSecondMeeting = 7;
         String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
         $("[data-test-id=city] input").setValue(validUser.getCity());
@@ -46,11 +46,11 @@ class DeliveryTest {
                 .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"))
                 .shouldBe(visible);
 
-        var validUser = DataGenerator.Registration.generateUser("ru");
-        var daysToAddForFirstMeeting = 4;
-        var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
-        var daysToAddForSecondMeeting = 7;
-        var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+        //var validUser = DataGenerator.Registration.generateUser("ru");
+        //var daysToAddForFirstMeeting = 4;
+        //var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
+        //var daysToAddForSecondMeeting = 7;
+        //var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
         // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи.
         // Для заполнения полей формы можно использовать пользователя validUser и строки с датами в переменных
         // firstMeetingDate и secondMeetingDate. Можно также вызывать методы generateCity(locale),
